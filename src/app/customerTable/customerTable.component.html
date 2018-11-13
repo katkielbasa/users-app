@@ -1,0 +1,63 @@
+<p-table #dt [columns]="cols" [value]="customers" [scrollable]="true" sortMode="multiple" [globalFilterFields]="['first_name','last_name']"
+    [paginator]="true" [rows]="10">
+    <ng-template pTemplate="caption">
+        List of Customers
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th>
+                Delete customer
+            </th>
+            <th>
+                Edit customer
+            </th>
+        </tr>
+        <tr>
+            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                <input *ngSwitchCase="'first_name'" style="width:100%" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                <input *ngSwitchCase="'last_name'" style="width:100%" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer let-columns="columns">
+        <tr>
+            <tr>
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input type="text" [(ngModel)]="customer.first_name">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{customer.first_name}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input type="text" [(ngModel)]="customer.last_name">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{customer.last_name}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>{{customer.birthdate}}</td>
+                <td>{{customer.height}}</td>
+                <td>{{customer.club_member}}</td>
+                <td>
+                    <p-button label="Delete" (onClick)="deleteCustomer(customer.id)"></p-button>
+                </td>
+                <td>
+                    <p-button label="Edit" (onClick)="editCustomer(customer)"></p-button>
+                </td>
+            </tr>
+    </ng-template>
+</p-table>
+<p>
+    <a [routerLink]="['/add']">Add Customer</a>
+</p>
