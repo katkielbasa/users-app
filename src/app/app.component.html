@@ -1,6 +1,15 @@
 <!-- main app container -->
 <div class="jumbotron">
     <div class="container">
+            <div>
+                    <!-- Language -->
+                    <div class="demo row">
+                      <div class="col"><i>Language: <b>{{language}}</b></i></div>
+                      <div class="col flags">
+                        <button (click)="changeLanguage('en')"><img src="assets/flag_en.PNG"/></button>
+                        <button (click)="changeLanguage('pl')"><img src="assets/flag_pl.PNG"/></button>
+                      </div>
+                    </div>
         <alert></alert>
         <router-outlet></router-outlet>
     </div>

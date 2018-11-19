@@ -3,7 +3,7 @@ export class Customer{
     last_name: string;
     birthdate: Date;
     height: string;
-    club_member: boolean;
+    club_member: boolean = false;
     id: number;
 
 }

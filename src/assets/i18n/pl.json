@@ -1,0 +1,45 @@
+{
+    "labels":{
+        "first_name": "Imię",
+        "last_name": "Nazwisko",
+        "username": "Nazwa użytkownika",
+        "password": "Hasło",
+        "birthdate" : "Data urodzenia",
+        "height": "Wzrost",
+        "club_member": "Czy należy do klubu?"
+    },
+    "button":{
+        "login":"Zaloguj",
+        "cancel":"Anuluj",
+        "register":"Zarejestruj",
+        "delete":"Usuń",
+        "edit":"Edytuj",
+        "submit":"Zatwierdź",
+        "update": "Uaktualnij"
+    },
+    "actions":{
+        "add_customer":"Dodaj użytkownika",
+        "delete_customer": "Usuń użytkownika",
+        "edit_customer":"Edytuj użytkownika",
+        "see_customers":"Przeglądaj tabele klientów",
+        "logout": "Wyloguj",
+        "login": "Zaloguj się",
+        "register": "Zarejestruj się"
+    },
+    "errors":{
+        "fn_is_required":"Imię jest wymagane",
+        "ln_is_required":"Nazwisko jest wymagane",
+        "birth_is_required":"Data urodzenia jest wymagana",
+        "height_is_required":"Wzrost jest wymagany",
+        "positive_number": "Wartość dla pola wzrost musi być dodatnią liczbą"
+    },
+    "select":{
+        "true":"tak",
+        "false":"nie"
+    },
+    "heathers":{
+        "hi":"Cześć ",
+        "all_users":"Wszyscy zarejestrowani użytownicy",
+        "list_of_customers": "Lista Klientów"
+    }
+}

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertService, UserService, CustomerService } from '../_services';
+import {TranslateService} from '@ngx-translate/core';
+import { Constants } from 'src/app/constants';
 
 @Component({
   selector: 'app-submit-customer',
@@ -18,12 +20,15 @@ export class SubmitCustomerComponent implements OnInit {
   submitCustomerForm: FormGroup;
   loading = false;
   submitted = false;
-
+  
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private customerService: CustomerService,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    private translate:TranslateService){
+      this.translate = translate;
+    }
 
   ngOnInit() {
     this.submitCustomerForm = this.formBuilder.group({
@@ -35,7 +40,7 @@ export class SubmitCustomerComponent implements OnInit {
           Validators.required
          ,Validators.pattern('^[0-9]+(\.[0-9]+)?$')]
        ],
-      club_member: ['']
+      club_member: ['', Validators.required]
     });
   }
 

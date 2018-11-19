@@ -1,13 +1,13 @@
-﻿<h1>Hi {{currentUser.firstName}}!</h1>
-<h3>All registered users:</h3>
+﻿<h1>{{'heathers.hi'|translate}} {{currentUser.firstName}}!</h1>
+<h3>{{'heathers.all_users'|translate}}</h3>
 <ul>
     <li *ngFor="let user of users">
         {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+        - <a (click)="deleteUser(user.id)" class="text-danger">{{'button.delete'|translate}}</a>
     </li>
 </ul>
-<p><a [routerLink]="['/login']">Logout</a></p>
-<p><a [routerLink]="['/customers']">See customer table</a></p>
-<p><a [routerLink]="['/add']">Add Customer</a></p>
+<p><a [routerLink]="['/login']">{{'actions.login'|translate}}</a></p>
+<p><a [routerLink]="['/customers']">{{'actions.see_customers'|translate}}</a></p>
+<p><a [routerLink]="['/add']">{{'actions.add_customer'|translate}}</a></p>
 
 

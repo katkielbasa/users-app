@@ -1,20 +1,18 @@
 <p-table #dt [columns]="cols" [value]="customers" [scrollable]="true" sortMode="multiple" [globalFilterFields]="['first_name','last_name']"
     [paginator]="true" [rows]="10">
     <ng-template pTemplate="caption">
-        List of Customers
-    </ng-template>
+            {{'heathers.list_of_customers'|translate}}
+            </ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-                {{col.header}}
+                {{col.header|translate}}
                 <p-sortIcon [field]="col.field"></p-sortIcon>
             </th>
             <th>
-                Delete customer
-            </th>
+                    {{'actions.delete_customer'|translate}}            </th>
             <th>
-                Edit customer
-            </th>
+                    {{'actions.edit_customer'|translate}}            </th>
         </tr>
         <tr>
             <th *ngFor="let col of columns" [ngSwitch]="col.field">
@@ -50,14 +48,14 @@
                 <td>{{customer.height}}</td>
                 <td>{{customer.club_member}}</td>
                 <td>
-                    <p-button label="Delete" (onClick)="deleteCustomer(customer.id)"></p-button>
+                    <p-button label="{{'button.delete'|translate}}"   (onClick)="deleteCustomer(customer.id)"></p-button>
                 </td>
                 <td>
-                    <p-button label="Edit" (onClick)="editCustomer(customer)"></p-button>
+                    <p-button label="{{'button.edit'|translate}}"   (onClick)="editCustomer(customer)"></p-button>
                 </td>
             </tr>
     </ng-template>
 </p-table>
 <p>
-    <a [routerLink]="['/add']">Add Customer</a>
+    <a [routerLink]="['/add']">{{'actions.add_customer'|translate}}</a>
 </p>

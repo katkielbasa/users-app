@@ -1,0 +1,46 @@
+{
+    "labels":{
+        "first_name": "First Name",
+        "last_name": "Last name",
+        "username": "Username",
+        "password": "Password",
+        "birthdate" : "Date of birth",
+        "height": "Height",
+        "club_member": "Is a club member?"
+    },
+    "button":{
+        "login":"Login",
+        "cancel":"Cancel",
+        "register":"Register",
+        "delete":"Delete",
+        "edit":"Edit",
+        "submit":"Submit",
+        "update": "Update"
+    },
+    "actions":{
+        "add_customer":"Add Customer",
+        "delete_customer": "Delete Customer",
+        "edit_customer":"Edit Customer",
+        "see_customers":"See customers table",
+        "logout": "Logout",
+        "login": "Login",
+        "register": "Register"
+    },
+    "errors":{
+        "fn_is_required":"First name is required",
+        "ln_is_required":"Last name is required",
+        "birth_is_required":"Date of birth is required",
+        "height_is_required":"Height is required",
+        "positive_number": "Height should be positive number"
+    },
+    "select":{
+        "true":"Yes",
+        "false":"No"
+    },
+
+    "heathers":{
+        "hi":"Hi ",
+        "all_users":"All registered users",
+        "list_of_customers": "List of customers"
+    }
+}

@@ -14,6 +14,8 @@ import {first} from "rxjs/operators";
 export class EditCustomerComponent implements OnInit {
   customer: Customer;
   editCustomerForm: FormGroup;
+  loading = false;
+  submitted = false;
   constructor(private formBuilder: FormBuilder,
     private router: Router,
      private customerService: CustomerService,
@@ -47,14 +49,24 @@ export class EditCustomerComponent implements OnInit {
   get f() { return this.editCustomerForm.controls; }
 
   onSubmit() {
+    this.submitted = true;
+
+    if (this.editCustomerForm.invalid) {
+      return;
+    }
+    this.loading = true;
+
     this.customerService.update(this.editCustomerForm.value)
       .pipe(first())
       .subscribe(
         data => {
+          this.alertService.success('Customer updated', true);
           this.router.navigate(['/customers']);
         },
         error => {
           this.alertService.error(error);
+          this.loading = false;
+
         });
   }
 

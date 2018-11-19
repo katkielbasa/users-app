@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 import { SelectItem } from 'primeng/components/common/selectitem';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-users',
@@ -21,31 +22,30 @@ export class CustomerTableComponent implements OnInit {
 
   club_member: SelectItem[];
 
-
   constructor(private customerService: CustomerService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    private translate: TranslateService
+) {
+ }
 
   ngOnInit() {
     //this.customerService.getCustomersSmall().then(customers => this.customers = customers);
     this.loadAllCustomers();
 
     this.cols = [
-      { field: 'first_name', header: 'First Name' },
-      { field: 'last_name', header: 'Last Name' },
-      { field: 'birthday', header: 'Birthday' },
-      { field: 'height', header: 'Height' },
-      { field: 'club_member', header: 'Club Member' }
+      { field: 'first_name', header: this.translate.instant('labels.first_name') },
+      { field: 'last_name', header: this.translate.instant('labels.last_name')  },
+      { field: 'birthdate', header: this.translate.instant('labels.birthdate') },
+      { field: 'height', header: this.translate.instant('labels.height')},
+      { field: 'club_member', header: this.translate.instant('labels.club_member') }
     ];
-
-
     this.club_member = [
       { label: 'true', value: 'Yes' },
       { label: 'false', value: 'No' }
     ]
   }
-
 
   deleteCustomer(id: number) {
     this.customerService.delete(id).pipe(first()).subscribe(() => {
